@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h2>You can contact me using the form below</h2>
+    <br>
+    {% if form %}
+    {{ wtf.quick_form(form) }}
+    <br>
+    {% endif %}
+    <h2>or using the following contacts below</h2>
+    <br>
+    <h3>telephone   ...</h3>
+    <h3>mail   ...</h3>
+{% endblock %}

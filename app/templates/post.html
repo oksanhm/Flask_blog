@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <table class="table table-hover">
+    <tr>
+        <td width="128px">
+            <a href="{{ url_for('user', username=post.author.username) }}">
+                <img src="{{ post.author.avatar(128) }}" />
+            </a>
+        </td>
+        <td>
+            <a href="{{ url_for('user', username=post.author.username) }}">
+                {{ post.author.username }}
+            </a>
+            <br>
+            {{ post.body }}
+            <br>
+            <br>
+            <div class="pull-right">{{ moment(post.timestamp).fromNow() }}</div>
+            Add comment:
+            <br>
+            {{ wtf.quick_form(form) }}
+            <br>
+            {% for comment in comments %}
+                {% include 'comment_post.html' %}
+            {% endfor %}
+            <nav aria-label="...">
+                <ul class="pager">
+                    <li class="previous{% if not prev_url %} disabled{% endif %}">
+                        <a href="{{ prev_url or '#' }}">
+                            <span aria-hidden="true">&larr;</span> Newer comments
+                        </a>
+                    </li>
+                    <li class="next{% if not next_url %} disabled{% endif %}">
+                        <a href="{{ next_url or '#' }}">
+                            Older comments <span aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </td>
+    </tr>
+    </table>
+{% endblock %}

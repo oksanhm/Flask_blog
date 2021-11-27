@@ -1,0 +1,22 @@
+<table class="table table-hover">
+    <tr>
+        <td width="70px">
+            <a href="{{ url_for('user', username=user.username) }}">
+                <img src="{{ user.avatar(70) }}" />
+            </a>
+        </td>
+        <td>
+            <a class="linc-com2"  href="{{ url_for('user', username=user.username) }}">
+                {{ user.username }}
+            </a>
+            <br>
+            <a class="linc-com2"  href="{{ url_for('followers', username=user.username)  }}">{{ user.followers.count() }} followers  </a>
+            <br>
+            {% if user.about_me %}
+            {{ user.about_me }}
+            {% endif %}
+            <br>
+            <div class="pull-right">Last seen on: {{ moment(user.last_seen).format('LLL') }}</div>
+        </td>
+    </tr>
+</table>
