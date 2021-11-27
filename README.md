@@ -1,7 +1,8 @@
 # Flask_blog
-![app](screenshots/home.png)
 ![app](screenshots/profile.png)
-write posts, comments, 
+![app](screenshots/home.png)
+write posts, comments,  
+
 they delete, edit, 
 search by posts, by users
 follow, unfollow,
