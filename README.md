@@ -2,7 +2,7 @@
 
 write posts, comments,  
 they delete, edit,  
-search by posts, by users  
+search by posts, by users using elasticsearch,  
 follow, unfollow,  
 reset password by token,  
 send email e.t.c.    
